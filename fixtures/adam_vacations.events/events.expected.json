@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "index": 0,
+      "value": {
+        "attributes": {},
+        "event_id": "AV-EVT-1",
+        "kind": "payment.failed",
+        "occurred_at": "2026-11-12T10:05:00+05:30",
+        "reference_id": "AV-CART-10022",
+        "schema_version": "1"
+      }
+    },
+    {
+      "index": 1,
+      "value": {
+        "amount": 28800.0,
+        "attributes": {},
+        "booking_id": "AVB-55120",
+        "currency": "INR",
+        "event_id": "AV-EVT-2",
+        "kind": "booking.confirmed",
+        "occurred_at": "2026-11-12T19:30:00+05:30",
+        "reference_id": "AV-CART-10021",
+        "schema_version": "1",
+        "transaction_id": "pay_Nx81"
+      }
+    }
+  ],
+  "kind": "events",
+  "rejections": [
+    {
+      "error": "unknown event 'refund_started'",
+      "field": "event",
+      "index": 2
+    }
+  ],
+  "skipped": []
+}

@@ -1,0 +1,91 @@
+[client]
+slug = "adam_vacations"
+name = "Adam Vacations"
+timezone = "Asia/Kolkata"
+country = "IN"
+
+[branding]
+company = "Adam Vacations"
+agent_name = "Aria"
+website = "https://www.adamvacations.example"
+email = "care@adamvacations.example"
+email_spoken = "care at adam vacations dot example"
+whatsapp = "+91 90000 00000"
+
+[llm]
+provider = "groq"
+knowledge_base = "knowledge/adam_vacations.md"
+
+[voice]
+telephony = "acefone"
+stt = "deepgram_flux"
+tts = "sarvam"
+
+[whatsapp]
+provider = "meta"
+
+[whatsapp.messages.resume_link]
+with_name = "Hi {name}, your Adam Vacations booking is saved. Tap below to pick up where you left off.\n\n*Reference:* {reference_id}"
+without_name = "Hi, your Adam Vacations booking is saved. Tap below to pick up where you left off.\n\n*Reference:* {reference_id}"
+button = "Resume booking"
+
+[email]
+provider = "smtp"
+sender = "care@adamvacations.example"
+
+[email.templates.cart_followup]
+subject = "Your trip is still waiting, {name}"
+text = "Hi {name},\n\nYour {summary} booking is saved. Finish it here: {link}\n\nReference: {reference_id}\n\nUnsubscribe: {unsubscribe}"
+html = "<p>Hi {name},</p><p>Your <b>{summary}</b> booking is saved.</p><p><a href=\"{link}\">Resume booking</a></p><p>Reference: {reference_id}</p><p style=\"font-size:12px\"><a href=\"{unsubscribe}\">Unsubscribe</a></p>"
+
+[intakes.adam_vacations_cart]
+name = "Adam Vacations abandoned carts"
+adapter = "adam_vacations.cart"
+adapter_config = { resume_base_url = "https://www.adamvacations.example/resume" }
+journey = "cart_recovery"
+agent = "callvoice"
+contact_hours = ["09:00", "21:00"]
+token_env = "ADAM_VACATIONS_CART_TOKEN"
+
+[intakes.adam_vacations_events]
+name = "Adam Vacations booking and payment events"
+adapter = "adam_vacations.events"
+token_env = "ADAM_VACATIONS_EVENTS_TOKEN"
+
+[journeys.cart_recovery]
+expires_after = "72h"
+on_new_record = "merge"
+steps = [
+  { key = "whatsapp_reminder", channel = "whatsapp", action = "send_link", delay = "5m", response_window = "30m" },
+  { key = "recovery_call", channel = "voice", action = "call", depends_on = ["whatsapp_reminder"], when = ["no_response", "failed"], retries = 1, retry_after = "15m" },
+  { key = "email_followup", channel = "email", action = "send_template", params = { template = "cart_followup" }, depends_on = ["recovery_call"], when = ["no_answer", "failed", "skipped"], delay = "2h", response_window = "24h" },
+]
+
+[journeys.cart_recovery.on]
+"booking.confirmed" = "complete"
+"payment.succeeded" = "complete"
+"payment.failed" = "start:payment_failed"
+"whatsapp.replied" = "cancel:recovery_call"
+"link.clicked" = "pause:30m"
+"call.not_interested" = "stop"
+"call.callback" = "reschedule:recovery_call"
+"call.transferred" = "stop"
+"opt_out" = "block"
+
+[journeys.payment_failed]
+expires_after = "24h"
+steps = [
+  { key = "retry_link", channel = "whatsapp", action = "send_link", response_window = "20m" },
+  { key = "retry_call", channel = "voice", action = "call", depends_on = ["retry_link"], when = ["no_response", "failed"] },
+]
+
+[event_journeys]
+"payment.failed" = "payment_failed"
+
+[policy]
+allowed_countries = ["IN"]
+
+[env]
+ALLOWED_COUNTRIES = "IN"
+MAX_CONTACTS_PER_DAY = "4"
+ENABLED_CHANNELS = "voice,whatsapp,email"

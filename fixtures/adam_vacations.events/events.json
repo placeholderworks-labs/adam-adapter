@@ -1,0 +1,6 @@
+[
+  {"event_id": "AV-EVT-1", "event": "payment_failed", "cart_id": "AV-CART-10022", "occurred_at": "2026-11-12T10:05:00"},
+  {"event_id": "AV-EVT-2", "event": "booking_confirmed", "cart_id": "AV-CART-10021", "booking_ref": "AVB-55120",
+   "txn_id": "pay_Nx81", "amount_paid": 28800, "currency": "INR", "occurred_at": "2026-11-12T19:30:00"},
+  {"event_id": "AV-EVT-3", "event": "refund_started", "cart_id": "AV-CART-10021", "occurred_at": "2026-11-13T09:00:00"}
+]

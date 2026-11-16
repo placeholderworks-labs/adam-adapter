@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "adam-vacations-adapter"
+version = "0.1.0"
+description = "Adam Vacations adapter for the PlaceholderWorks platform"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["pw-sdk[llm,tools,channel]"]
+
+[project.entry-points."pw.adapters"]
+"adam_vacations.cart" = "adam_vacations.adapter:AdamVacationsCartAdapter"
+"adam_vacations.events" = "adam_vacations.adapter:AdamVacationsEventsAdapter"
+
+[project.scripts]
+adam-vacations = "adam_vacations.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["adam_vacations"]
+
+[tool.uv.sources]
+pw-sdk = { path = "../pw-sdk", editable = true }
+pw-tools = { path = "../pw-tools", editable = true }
+pw-llm = { path = "../pw-llm", editable = true }
+pw-channel = { path = "../pw-channel", editable = true }
+
+[dependency-groups]
+dev = ["pytest>=8.3", "pgserver>=0.1.4"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

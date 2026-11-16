@@ -1,0 +1,78 @@
+{
+  "items": [
+    {
+      "index": 0,
+      "value": {
+        "cart": {
+          "currency": "INR",
+          "discount": 0.0,
+          "items": [
+            {
+              "attributes": {},
+              "item_id": "PK-KER-5N",
+              "quantity": 1,
+              "title": "Kerala backwaters, 5 nights",
+              "total": 42000.0,
+              "type": "package",
+              "unit_price": 42000.0
+            }
+          ],
+          "total": 42000.0
+        },
+        "customer": {
+          "consent": {},
+          "name": "Ravi Kumar",
+          "phone": "+919876543210"
+        },
+        "facts": [
+          {
+            "key": "payment_status",
+            "label": "Payment status",
+            "speakable": true,
+            "value": "failed"
+          },
+          {
+            "key": "last_page",
+            "label": "Left on page",
+            "speakable": false,
+            "value": "payment"
+          }
+        ],
+        "journey": {
+          "resume_url": "https://www.adamvacations.example/resume/AV-CART-10022?utm_source=pw&utm_medium=recovery",
+          "stage": "payment_failed"
+        },
+        "ref": {
+          "occurred_at": "2026-11-12T10:00:00+05:30",
+          "reference_id": "AV-CART-10022"
+        },
+        "schedule": {},
+        "schema_version": "1",
+        "summary": "Kerala backwaters, 5 nights"
+      }
+    }
+  ],
+  "kind": "records",
+  "rejections": [
+    {
+      "error": "mobile '12345' is not a valid number",
+      "field": "customer.mobile",
+      "index": 2
+    },
+    {
+      "error": "Field required",
+      "field": "cart_id",
+      "index": 4
+    }
+  ],
+  "skipped": [
+    {
+      "index": 1,
+      "reason": "test cart"
+    },
+    {
+      "index": 3,
+      "reason": "already paid"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "items": [
+    {
+      "index": 0,
+      "value": {
+        "cart": {
+          "currency": "INR",
+          "discount": 400.0,
+          "items": [
+            {
+              "attributes": {
+                "airline": "IndiGo",
+                "destination": "GOI",
+                "origin": "DEL",
+                "passengers": 2,
+                "trip_type": "one_way"
+              },
+              "item_id": "FL-DEL-GOI-1411",
+              "quantity": 2,
+              "starts_at": "2026-11-14T06:10:00+05:30",
+              "title": "Delhi to Goa, 14 Nov",
+              "total": 10600.0,
+              "type": "flight",
+              "unit_price": 5400.0
+            },
+            {
+              "attributes": {
+                "city": "Goa",
+                "guests": 2,
+                "hotel": "Taj Holiday Village",
+                "nights": 3,
+                "rooms": 1
+              },
+              "ends_at": "2026-11-17T11:00:00+05:30",
+              "item_id": "HT-GOA-TAJ-3N",
+              "quantity": 1,
+              "starts_at": "2026-11-14T14:00:00+05:30",
+              "title": "Taj Holiday Village, 3 nights",
+              "total": 18600.0,
+              "type": "hotel",
+              "unit_price": 18600.0
+            }
+          ],
+          "total": 28800.0
+        },
+        "customer": {
+          "consent": {
+            "whatsapp": true
+          },
+          "email": "asha.verma@example.com",
+          "external_id": "sess_8f2a",
+          "language": "hi",
+          "name": "Asha Verma",
+          "phone": "+919812345678"
+        },
+        "facts": [
+          {
+            "key": "payment_status",
+            "label": "Payment status",
+            "speakable": true,
+            "value": "not started"
+          },
+          {
+            "key": "last_page",
+            "label": "Left on page",
+            "speakable": false,
+            "value": "traveller_details"
+          }
+        ],
+        "journey": {
+          "abandoned_at": "2026-11-12T18:42:00+05:30",
+          "resume_url": "https://www.adamvacations.example/resume/rsm_10021_x9?utm_source=pw&utm_medium=recovery",
+          "stage": "checkout"
+        },
+        "ref": {
+          "campaign_id": "diwali-sale",
+          "occurred_at": "2026-11-12T18:20:00+05:30",
+          "reference_id": "AV-CART-10021"
+        },
+        "schedule": {},
+        "schema_version": "1",
+        "summary": "Delhi to Goa, 14 Nov, Taj Holiday Village, 3 nights"
+      }
+    }
+  ],
+  "kind": "records",
+  "rejections": [],
+  "skipped": []
+}

@@ -1,0 +1,21 @@
+{
+  "cart_id": "AV-CART-10021",
+  "session_id": "sess_8f2a",
+  "customer": {"name": "Asha Verma", "email": "asha.verma@example.com", "mobile": "9812345678", "preferred_language": "hi", "whatsapp_opt_in": true},
+  "lines": [
+    {"sku": "FL-DEL-GOI-1411", "category": "flight", "label": "Delhi to Goa, 14 Nov", "qty": 2, "price": 5400, "discount": 200,
+     "start_date": "2026-11-14T06:10:00", "details": {"origin": "DEL", "destination": "GOI", "airline": "IndiGo", "passengers": 2, "trip_type": "one_way"}},
+    {"sku": "HT-GOA-TAJ-3N", "category": "hotel", "label": "Taj Holiday Village, 3 nights", "qty": 1, "price": 18600,
+     "start_date": "2026-11-14T14:00:00", "end_date": "2026-11-17T11:00:00", "details": {"city": "Goa", "hotel": "Taj Holiday Village", "rooms": 1, "nights": 3, "guests": 2}}
+  ],
+  "currency": "INR",
+  "discount_total": 400,
+  "cart_value": 28800,
+  "journey_status": "abandoned",
+  "payment_status": "not_started",
+  "last_page": "traveller_details",
+  "deeplink_token": "rsm_10021_x9",
+  "created_at": "2026-11-12T18:20:00",
+  "abandoned_at": "2026-11-12T18:42:00",
+  "campaign": "diwali-sale"
+}

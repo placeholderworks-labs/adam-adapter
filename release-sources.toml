@@ -1,0 +1,5 @@
+[tool.uv.sources]
+pw-sdk = { git = "https://github.com/placeholderworks-labs/pw-sdk.git", tag = "v0.1.0" }
+pw-tools = { git = "https://github.com/placeholderworks-labs/tool-ecosystem.git", tag = "v0.2.0" }
+pw-llm = { git = "https://github.com/placeholderworks-labs/llm-layer.git", tag = "v0.2.0" }
+pw-channel = { git = "https://github.com/placeholderworks-labs/channel.git", tag = "v0.1.0" }
